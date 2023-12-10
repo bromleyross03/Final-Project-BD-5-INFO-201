@@ -64,7 +64,7 @@ server <- function(input, output) {
   output$barChart <- renderPlot({
     top_countries <- df_sorted[order(df_sorted$Happiness.score, decreasing = TRUE), ][1:input$barCount, ]
     ggplot(top_countries, aes(x = reorder(Country, Happiness.score), y = Happiness.score)) +
-      geom_bar(stat = "identity", fill = "blue") +  # Set bar color to blue
+      geom_bar(stat = "identity", fill = "blue") + 
       coord_flip() +
       labs(title = "Top Countries by Happiness Score", x = "Country", y = "Happiness Score")
   })
