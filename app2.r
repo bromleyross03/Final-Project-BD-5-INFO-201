@@ -3,7 +3,7 @@ library(ggplot2)
 library(plotly)
 library(maps)
 
-source("C:/Users/mabse/Downloads/BD-5 Data Cleaning Project (1).R") 
+source("BD-5 Data Cleaning Project (1).R") 
 
 ui <- navbarPage("GDP and Happiness Analysis",
                  tabPanel("Intro",
