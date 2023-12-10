@@ -1,8 +1,8 @@
 library(dplyr)
 library(stringr)
 
-gdp_df <- read.csv("C:/Users/mabse/Downloads/GDP by Country 1999-2022.csv")
-happiness_df <- read.csv("C:/Users/mabse/Downloads/2022.csv")
+gdp_df <- read.csv("GDP by Country 1999-2022.csv")
+happiness_df <- read.csv("2022.csv")
 
 df <- merge(x = gdp_df, y = happiness_df,
             by.x = "Country",
