@@ -1,17 +1,9 @@
-#library statements
 library(dplyr)
 library(stringr)
 
-#read in dataframes
 gdp_df <- read.csv("C:/Users/mabse/Downloads/GDP by Country 1999-2022.csv")
 happiness_df <- read.csv("C:/Users/mabse/Downloads/2022.csv")
 
-#modify_country <- happiness_df$Country
-#happiness_df[, modify_country] <- lapply(df[, modify_country], function(x) as.numeric(gsub("*", "", x)))
-
-#happiness_df <- gsub("\\*", "", happiness_df$Country)
-
-#join dataframes
 df <- merge(x = gdp_df, y = happiness_df,
             by.x = "Country",
             by.y = "Country",
@@ -66,18 +58,6 @@ df_sorted$Country[df_sorted$Country == "United Kingdom"] <- "UK"
 
 df_sorted$Country[df_sorted$Country == "Taiwan Province of China"] <- "Taiwan"
 
-#max_index <- max(happy_index)
-#df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
-#new_df <- data.frame(summary(df$Happiness.score))
-#g_df <- group_by(df, Country)
-#stats_per_region <- summarise(g_df, 
- #                          avg_poverty_percent = mean(Happiness.score),
-    #                       median_poverty_percent = median(Happiness.score))
-
-#summary <- summarise(group_by(df, Country)),
-
-
-# Summarize data
 summary_df <- summarise(group_by(df), 
                            AverageHappiness = mean(happy_index, na.rm = TRUE), 
                            MedianHappiness = median(happy_index, na.rm = TRUE),
@@ -89,6 +69,3 @@ summary_df <- summarise(group_by(df),
                            SDGDP = sd(Explained.by..GDP.per.capita, na.rm = TRUE),
                            MinGDP = min(Explained.by..GDP.per.capita, na.rm = TRUE),
                            MaxGDP = max(Explained.by..GDP.per.capita, na.rm = TRUE))
-
-
-#df[] <- lapply(df, function(x) as.numeric(gsub(",", ".", x)))
